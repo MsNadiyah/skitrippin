@@ -1,5 +1,38 @@
 source 'https://rubygems.org'
 
+#############################
+##### APP-SPECIFIC GEMS #####
+#############################
+
+# To make factories to support RSPEC testing
+gem 'factory_girl_rails'
+
+# To use RSPEC in the testing and development environments
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+# Facilitates grid-based styling
+gem 'bootstrap-sass', '~>3.3.2'
+
+# Facilitates user authentication & password encryption
+gem 'bcrypt'
+
+# Facilitates the use of Angular
+gem 'angularjs-rails'
+
+# To use Angular with Rails
+gem 'angular-rails-templates'
+
+# For the creation and formatting of outbound JSON files
+gem 'active_model_serializers'
+
+# For improved error handling
+gem 'better_errors'
+
+##############################
+##### PRE-INSTALLED GEMS #####
+##############################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -16,10 +49,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# gem 'turbolinks'
+# # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
