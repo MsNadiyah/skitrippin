@@ -17,7 +17,7 @@ gem 'bootstrap-sass', '~>3.3.2'
 
 # Facilitates user authentication & password encryption
 gem 'bcrypt'
-
+ 
 # Facilitates the use of Angular
 gem 'angularjs-rails'
 
@@ -29,6 +29,9 @@ gem 'active_model_serializers'
 
 # For improved error handling
 gem 'better_errors'
+
+# For use of ActiveModel::SecurePassword and better function once deployed to Heroku
+gem 'rails_12factor', group: :production
 
 ##############################
 ##### PRE-INSTALLED GEMS #####
