@@ -1,0 +1,88 @@
+<div class="container-fluid">
+
+  <%= form_for @user, html: {class: "form", :multipart => true} do |f| %> 
+
+    <div class="col-md-8 col-md-offset-2">
+
+      <div class="form-horizontal form-border">
+
+        <h2>Basic User Information</h2>
+
+        <!-- Multipart true is needed for carrierwave avatar uploading -->
+
+        <div class="form-group">
+          <%= f.label :name, "First and Last Name", { class: "control-label text-left" } %>
+          <%= f.text_field :name, { class: "form-control col-md-5", :type => "text", :placeholder => "Bodie Miller" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, "Email address", { class: "control-label text-left" }  %>
+          <%= f.text_field :email, { class: "form-control col-md-5", :type => "text", :placeholder => "bodie.miller@gmail.com" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :ski, "I ski...", { class: "conrol-label, text-left" } %>
+          <%= f.check_box :ski, { class: "form-control col-md-5" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :snowboard, "I snowboard...", { class: "conrol-label, text-left" } %>
+          <%= f.check_box :ski, { class: "form-control col-md-5" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :level, "What's your skiing/snowboarding level? " %> 
+          <%= f.select(:level, options_for_select([
+            ["Green (Beginner)", 1],
+            ["Blue (Intermediate)", 2],
+            ["Black (Advanced)" , 3],
+            ["Double Black (Expert)", 4]],
+            selected: :level )) %> 
+        </div>
+
+        <div class="form-group" >
+          <%= f.label :travel, "I am willing to travel (fly) for epic snow conditions...", { class: "control-label text-left" }  %> 
+          <%= f.check_box :travel, { class: "form-control col-md-5" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :group_size, "What's the typical size of your group? " %> 
+          <%= f.select(:group_size, options_for_select([
+            ["1", 1],
+            ["2", 2],
+            ["3" , 3],
+            ["4" , 4],
+            ["5+", 5]],
+            selected: :group_size )) %> 
+        </div>
+
+        <div class="form-group">
+          <%= f.label :decision_driver, "Which factor(s) most drive you decision on where to go? " %> 
+          <%= f.select(:decision_driver, options_for_select([
+            ["Affordability", 1],
+            ["Mountain Conditions", 2],
+            ["Both afordability & mountain conditions" , 3]],
+            selected: :decision_driver )) %> 
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, { class: "control-label text-left" }  %>
+          <%= f.password_field :password, { class: "form-control col-md-5", :placeholder => "Please enter your password" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, { class: "control-label text-left" }  %>
+          <%= f.password_field :password_confirmation, { class: "form-control col-md-5", :placeholder => "Please re-enter your password" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Join SKITRIPPIN", {:controller => 'users', :method => :create, class: "btn btn-primary btn-large col-md-4 col-md-offset-4" } %>
+        </div>
+
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>

@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   root "static_pages#index"
 
+  resources :users, only: [:new, :edit]
+
+  namespace :api, defaults: { format: 'json' } do
+    resources :users, only: [:index, :create, :show, :update, :destroy]
+  end 
+
   # Static Pages routes
   
   get '/about_us' => "static_pages#about_us"
