@@ -30,7 +30,7 @@ end
 gem 'responders', '~> 2.0'
 
 # Facilitates grid-based styling
-gem 'bootstrap-sass', '~>3.3.2'
+gem 'bootstrap-sass', '~>3.2.0'
 
 # Facilitates user authentication & password encryption
 gem 'bcrypt'
@@ -46,6 +46,8 @@ gem 'active_model_serializers'
 
 # For use of ActiveModel::SecurePassword and better function once deployed to Heroku
 gem 'rails_12factor', group: :production
+# Also for Heroku/production environment(s)
+gem 'thin', group: :production 
 
 ##############################
 ##### PRE-INSTALLED GEMS #####

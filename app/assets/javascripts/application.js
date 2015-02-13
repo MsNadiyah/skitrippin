@@ -17,5 +17,6 @@
 //= require angular-resource
 //= require angular-route
 //= require angular-rails-templates
+//= require app
 //= require_tree .
 //= require_tree ./templates
