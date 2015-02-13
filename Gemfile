@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 ##### APP-SPECIFIC GEMS #####
 #############################
 
+# Specify a ruby version
+ruby '2.1.3'
+
 # Facilitates making client API requests to 3rd party websits
 gem 'httparty', '~> 0.13.3'
 
