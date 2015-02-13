@@ -4,6 +4,15 @@ source 'https://rubygems.org'
 ##### APP-SPECIFIC GEMS #####
 #############################
 
+# Facilitates making client API requests to 3rd party websits
+gem 'httparty', '~> 0.13.3'
+
+# A group of code snippets that make Rails Console open pry and configure things in a more readable layoutge
+gem 'spirit_fingers', :group => :development
+
+# For API Key protection
+gem 'figaro'
+
 # To make factories to support RSPEC testing
 gem 'factory_girl_rails'
 
@@ -11,6 +20,14 @@ gem 'factory_girl_rails'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
+
+# For improved error handling
+group :development do
+  gem 'better_errors'
+end
+
+# To enable the "respond_to" functionality with APIs
+gem 'responders', '~> 2.0'
 
 # Facilitates grid-based styling
 gem 'bootstrap-sass', '~>3.3.2'
@@ -26,9 +43,6 @@ gem 'angular-rails-templates'
 
 # For the creation and formatting of outbound JSON files
 gem 'active_model_serializers'
-
-# For improved error handling
-gem 'better_errors'
 
 # For use of ActiveModel::SecurePassword and better function once deployed to Heroku
 gem 'rails_12factor', group: :production

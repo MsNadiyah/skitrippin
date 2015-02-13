@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207053546) do
+ActiveRecord::Schema.define(version: 20150211015649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "resorts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "country"
+    t.string   "website"
+    t.string   "phone_number"
+    t.integer  "skiable_acres"
+    t.integer  "lift_count"
+    t.integer  "run_count"
+    t.string   "major_airport"
+    t.string   "local_airport"
+    t.boolean  "snowboard"
+    t.integer  "level_green"
+    t.integer  "level_blue"
+    t.integer  "level_black"
+    t.integer  "level_double_black"
+    t.string   "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +49,8 @@ ActiveRecord::Schema.define(version: 20150207053546) do
     t.string   "decision_driver"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.string   "airport"
   end
 
 end
