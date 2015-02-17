@@ -2,7 +2,6 @@ module API
 
   class ResortsController < ApplicationController
 
-
     # Enables passing information as JSON
     protect_from_forgery with: :null_session
     # Enables receiving information as JSON
@@ -25,7 +24,6 @@ module API
 
     def destroy
       resort = Resort.find(params[:id])
-
       resort.delete
       head 204
     end

@@ -5,10 +5,10 @@ FactoryGirl.define do
     ski true
     snowboard true
     email "jean.gray@email.com"
-    level "Green"
+    level 3
     travel true
     group_size 4
-    decision_driver "Affordability"
+    decision_driver 2
   end
 
   factory :invalid_user do 
@@ -17,7 +17,7 @@ FactoryGirl.define do
     ski true
     snowboard true
     email "jeangray.com"
-    level "Green"
+    level 4
     travel true
     group_size 4
     decision_driver nil

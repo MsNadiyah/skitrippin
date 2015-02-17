@@ -1,0 +1,172 @@
+<div class="container-fluid">
+  <div class="individual-resort col-md-8 col-md-offset-2">
+
+    <section class="resort-overview">
+
+      <!-- The Resort Header Information -->
+      <div class="resort-header row">
+        <div class="page-header text-center">
+          <h1><%= @resort.name %></h1>
+          <h2><small><%= @resort.parsed_address.city %>, <%= @resort.parsed_address.state_name %> | <%= @resort.country %></small></h2>
+        </div>
+      </div>
+      
+      <!-- Map and Image section -->
+      <div class="row">
+
+        <!-- Google Map Integration  -->
+        <div class="google-map">
+          
+        </div>
+
+        <!-- Resort Image -->
+        <div class="resort-image">
+        </div>
+      </div>
+
+    </section>
+
+<!-- Collapsible sections -->
+    <section="accordions">
+      <div class="panel-group" id="accordion">
+
+  <!-- Collapsible section for Resort Overview -->
+    
+        <div class="panel panel-default" id="panel2">
+          <div class="panel-heading">
+            <h3 class="header text-left">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                 Resort Overview <small>What makes <%= @resort.name %> awesome</small>
+              </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+            </h3>
+          </div>
+
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <%= @resort.description %>
+            </div>
+          </div>
+        </div>      
+
+  <!-- Collapsible section for Mountain Conditions -->
+
+        <div class="panel panel-default" id="panel2">
+          <div class="panel-heading">
+            <h3 class="header text-left">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                 Mountain Conditions <small>Base depth, last-snow & predicted snow </small>
+              </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+            </h3>
+          </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p class="lead">We've gathered information about <%= @resort.name %>'s base depth, snowfall over the past 2 days and predicted snowfall over the next 7 days for you.</p>
+
+              <!-- Divs for Base depth, Snow -2 days and Snow + 7 days thumbnails -->
+              <div class="row">
+                <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail">
+                    <img src="..." alt="...">
+                    <div class="caption">
+                      <h4 class="text-center">Base Depth</h4>
+                        <p class="text-center lead"><%= @resort.average_base_depth %> inches </p>
+                    </div>
+                  </div>
+
+                  <div class="thumbnail">
+                    <img src="..." alt="...">
+                    <div class="caption">
+                      <h4 class="text-center">Snow - Past 2 days</h4>
+                        <p class="text-center lead"><%= @resort.snow_past_48hours %> inches</p>
+                    </div>
+                  </div>
+
+                  <div class="thumbnail">
+                    <img src="..." alt="...">
+                    <div class="caption">
+                      <h4 class="text-center">Snow - Next 7 days</h4>
+                        <p class="text-center lead"><%= @resort.snow_next_7days %> inches</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <!-- Collapsible section for Weather Forecast -->
+
+      <div class="panel panel-default" id="panel3">
+          <div class="panel-heading">
+            <h3 class="header text-left">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                 Weather Forecast <small>5 day forecast</small>
+              </a><i class="indicator glyphicon glyphicon-chevron-down pull-right"></i>
+            </h3>
+          </div>
+
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p class="lead">The 5 day weather forecast in <b><%= @resort.name %></b></p>
+
+              <div class="row weather-forecast">
+
+              <!-- Placeholder for date -->
+
+              <!-- 5 Day weather forecast -->
+
+                <!-- Day one -->
+                <div class="col-md-2 weather-box">
+                  <h4 class="text-center"><small>High</small> <%= @resort.weather_high("Today") %>&degF </h4>
+                  <h4 class="text-center"><small>Low</small> <%= @resort.weather_low("Today") %>&degF </h4>
+                  <h4 class="text-center"><small>Conditions</small><br> <%= @resort.weather_conditions("Today") %> </h4>
+                  <h4 class="text-center"><small>Winds</small><br><%= @resort.winds("Today") %> MPH </h4>
+                </div>    
+
+                <!-- Day two -->
+                <div class="col-md-2 weather-box">
+                  <h4 class="text-center"><small>High</small> <%= @resort.weather_high("Tomorrow") %>&degF </h4>
+                  <h4 class="text-center"><small>Low</small> <%= @resort.weather_low("Tomorrow") %>&degF </h4>
+                  <h4 class="text-center"><small>Conditions</small><br> <%= @resort.weather_conditions("Tomorrow") %> </h4>
+                  <h4 class="text-center"><small>Winds</small><br><%= @resort.winds("Tomorrow") %> MPH </h4>
+                </div>  
+
+                <!-- Day three -->
+                <div class="col-md-2 weather-box">
+                  <h4 class="text-center"><small>High</small> <%= @resort.weather_high("DayAfterTomorrow") %>&degF </h4>
+                  <h4 class="text-center"><small>Low</small> <%= @resort.weather_low("DayAfterTomorrow") %>&degF </h4>
+                  <h4 class="text-center"><small>Conditions</small><br> <%= @resort.weather_conditions("DayAfterTomorrow") %> </h4>
+                  <h4 class="text-center"><small>Winds</small><br><%= @resort.winds("DayAfterTomorrow") %> MPH </h4>
+                </div>  
+
+                <!-- Day four -->
+                <div class="col-md-2 weather-box">
+                  <h4 class="text-center"><small>High</small> <%= @resort.weather_high("Day4") %>&degF </h4>
+                  <h4 class="text-center"><small>Low</small> <%= @resort.weather_low("Day4") %>&degF </h4>
+                  <h4 class="text-center"><small>Conditions</small><br> <%= @resort.weather_conditions("Day4") %> </h4>
+                  <h4 class="text-center"><small>Winds</small><br><%= @resort.winds("Day4") %> MPH </h4>
+                </div> 
+
+                <!-- Day five -->
+                <div class="col-md-2 weather-box">
+                  <h4 class="text-center"><small>High</small> <%= @resort.weather_high("Day5") %>&degF </h4>
+                  <h4 class="text-center"><small>Low</small> <%= @resort.weather_low("Day5") %>&degF </h4>
+                  <h4 class="text-center"><small>Conditions</small><br> <%= @resort.weather_conditions("Day5") %> </h4>
+                  <h4 class="text-center"><small>Winds</small><br><%= @resort.winds("Day5") %> MPH </h4>
+                </div> 
+  
+                 
+              </div>
+
+            </div>
+          </div>
+        
+      </div>
+
+    
+
+    </section>
+
+  </div>  
+</div>

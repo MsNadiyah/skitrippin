@@ -1,20 +1,27 @@
 Rails.application.routes.draw do
 
-  root "static_pages#home"
+  root 'static_pages#home'
 
-  resources :users, only: [:new, :edit]
+  # User-login
+  get    'login'  => 'sessions#new'
+  post   'login'  => 'sessions#create'
+  get    'logout' => 'sessions#destroy'
+  delete 'logout' => 'sessions#destroy'
+
+  # User sign-up
+  get '/signup' => 'users#new'
+
+  # Resorts
+  get   'resorts' => 'resorts#index'
+
+  resources :resorts, only: [:index, :show]
+
+  resources :users, only: [:new, :create, :edit, :update]
 
   namespace :api, defaults: { format: 'json' } do
-    resources :users, only: [:index, :create, :show, :update, :destroy]
+    resources :users, only: [:index, :show, :destroy]
     resources :resorts, only: [:index, :show, :destroy]
   end 
-
-  # Static Pages routes
-  
-  get '/about_us' => "static_pages#about_us"
-  get '/how_it_works' => "static_pages#how_it_works"
-  get '/resorts' => "static_pages#resorts"
-  get '/contact_us'=> "static_pages#contact_us"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

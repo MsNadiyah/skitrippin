@@ -1,52 +1,16 @@
 module ResortsHelper
 
-   # Convert from skitrippin's resort ID to snocountry IDs
+  ####################################
+  ##### RESORT RANKING VARIABLES #####
+  ####################################
 
-  RESORT_IDS = {
-    # 5 => # Deer Valley, Utah
-    # 6 => WhistlerBlackcomb, British Columbia Canada
-    # 7 => Mammoth Mountain, CA
-    # 8 => Snowbasin, UT
-    9  => 303001 # Arapahoe Basin, CO, USA
-    # 10 => 303003 # Aspen (AJAX), CO, USA
-    # 11 => 907002 # Alyeska Resort, AK, USA
-    # 12 => 250002 # Kicking Horse, BC, Canada
-  }
-
-  # Variables to build URL for API call
-
-  @request_url
-  @base_url     = "http://feeds.snocountry.net/conditions.php?"
-  @api_key      = "apiKey=SnoCountry.Example"    
-  @resorts      = "&ids=303001"
-
-  # Build the request url
-
-  def build_url 
-    @request_url = 
-    @request_url += @base_url
-    @request_url += @api_key
-    @request_url += @resorts
-  end
-
- # Make API Call
-  def conditions_api
-    # Issues "get" request and converts response into a string (needed for key references)
-    sno_country_response = JSON.parse(HTTParty.get("#{@request_url}"))
-    # Converts the root of the JSON response into an easy-to-reference variable "conditions_root"
-    @resort = sno_country_response["items"][0]
-
-  end
-
-  #################################
-  ##### SNOW CONDITIONS SCORE #####
-  #################################
+  ##### SNOW CONDITIONS SCORE #####  
 
   # Snow Conditions Score returns a composite score for the base depth, forecasted snow over the next 7 days and how much of that snow will fall after day 4 (days 4-7)
 
-  def get_base_depth
+  def get_base_depth(mountain)
     # Grab the base depth from the API call
-    average_base_depth = ( @resort["avgBaseDepthMin"].to_i + @resort["avgBaseDepthMax"].to_i )/2
+    average_base_depth = ( @resort_conditions["avgBaseDepthMin"].to_i + @resort_conditions["avgBaseDepthMax"].to_i )/2
   
     # Assigning a score to the base depth based on the average_base_depth found above used in the mountain_condition-score
     case average_base_depth
@@ -68,9 +32,9 @@ module ResortsHelper
 
   end
 
-  def get_predicted_snowfall
+  def get_predicted_snowfall(mountain)
     #Gets the seven_day_snowfall from the SnoCountryAPI
-    seven_day_snowfall = @resort["predictedSnowFall_7days"].to_i
+    seven_day_snowfall = @resort_conditions["predictedSnowFall_7days"].to_i
 
     # Assigns a score based on the predicted amount of snowfall
     case seven_day_snowfall
@@ -92,13 +56,13 @@ module ResortsHelper
       
   end
 
-  def get_future_snow
+  def get_future_snow(mountain)
 
     predicted_snowfall = 
-      @resort["predictedSnowFall_7days"].to_i - 
-      ( @resort["predictedSnowFall_24Hours"].to_i + 
-        @resort["predictedSnowFall_48Hours"].to_i + 
-        @resort["predictedSnowFall_78Hours"].to_i )
+      @resort_conditions["predictedSnowFall_7days"].to_i - 
+      ( @resort_conditions["predictedSnowFall_24Hours"].to_i + 
+        @resort_conditions["predictedSnowFall_48Hours"].to_i + 
+        @resort_conditions["predictedSnowFall_78Hours"].to_i )
 
     case predicted_snowfall
     when 0..50
@@ -109,18 +73,16 @@ module ResortsHelper
 
   end
 
-  def total_snow_conditions_score
+  def total_snow_conditions_score(mountain)
     @snow_conditions_score = base_depth_score + forecasted_snow_score + future_snow_score
   end
 
-  ###############################
-  ##### RESORT STATUS SCORE #####
-  ###############################
+  ##### MOUNTAIN STATS SCORING #####
 
   # Resort Status Score returns a composite score for the vertical drop and skiable acres, assuming that users would prefer larger resorts with longer vertical drop
 
-  def get_vertical_drop
-    vertical_drop = @resort["verticalDrop"].to_i
+  def get_vertical_drop(mountain)
+    vertical_drop = @resort_conditions["verticalDrop"].to_i
 
     case vertical_drop
     when 0..500
@@ -141,8 +103,8 @@ module ResortsHelper
 
   end
 
-  def get_skiable_acres
-    skiable_acres = @resort["maxOpenDownhillAcres"].to_i
+  def get_skiable_acres(mountain)
+    skiable_acres = @resort_conditions["maxOpenDownhillAcres"].to_i
 
     case skiable_acres
     when 0..500
@@ -162,8 +124,14 @@ module ResortsHelper
     return acres_score
   end
 
-  def total_resort_status_score
+  def total_resort_status_score(mountain)
     @resort_score = vertical_drop_score + acres_score  
   end
+
+  
+  ##### GETTING HERE SCORE & INFORMATION #####
+
+  # Placeholder until API decision is made
+
 
 end

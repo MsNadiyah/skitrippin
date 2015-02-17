@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+
+   <div class="resorts-header">
+    <div class="col-md-9 col-md-offset-1">
+      <h1 class="">Mountain resorts</h1>
+        <p class="lead">
+          We've compiled this list of some of the biggest and best ski resorts in North America.  The resorts have been ranked based on <b>current</b> and <b>forecasted weather conditions</b>, <b>mountain conditions</b> and <b>travel</b> and <b>lodging</b> costs.</p>  
+
+        <p class="lead">
+          Click any of the resorts to see more detailed information.
+        </p>
+
+        <p class="lead">
+          To see a customized ranking of the resorts based on your location & skiier or snowboarder profile, <a href="/login">login</a> or <a href="/signup">signup</a>.
+        </p>
+    </div>
+   </div>
+
+   <!-- The Resorts listing -->
+   <section id="resorts">
+
+     <div class="resorts-listing">
+      <!-- Container for holding each of the ski resort results -->
+      <div class="col-md-3 resort-box" >
+
+        <ul id="resorts-list">
+        </ul>
+
+        <script>
+
+          $( document ).read(function(){ 
+            console.log("jQuery loaded!"); 
+
+            // Fade in a spinner
+            $('#loading-spinner').fadeIn( "slow "); 
+
+            // Grabs the resorts from the API
+
+            var request = $.ajax({
+              dataType: 'json', 
+              type: 'GET',
+              url: '/api/resorts',
+              data: {}
+
+            });
+
+          });
+
+        </script>
+
+      </div>
+     </div>
+
+   </section>
+
+  </div>
+</div>

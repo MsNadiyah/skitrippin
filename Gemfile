@@ -36,7 +36,7 @@ gem 'responders', '~> 2.0'
 gem 'bootstrap-sass', '~>3.2.0'
 
 # Facilitates user authentication & password encryption
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
  
 # Facilitates the use of Angular
 gem 'angularjs-rails'
@@ -51,6 +51,9 @@ gem 'active_model_serializers'
 gem 'rails_12factor', group: :production
 # Also for Heroku/production environment(s)
 gem 'thin', group: :production 
+
+# Makes addresses easily parsabale for Google Maps and display features
+gem 'StreetAddress', :require => "street_address"
 
 ##############################
 ##### PRE-INSTALLED GEMS #####

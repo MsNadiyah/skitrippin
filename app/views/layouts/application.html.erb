@@ -2,6 +2,9 @@
 <html ng-app="MainApp">
 
   <head>
+    <!-- Gets rid of the preceding hashes associated with Angular routes -->
+    <base href="/">
+    <title ng-bind="title"></title> 
     <title>SKITRIPPIN - Chase the powder</title>
     <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
@@ -9,6 +12,8 @@
   </head>
 
   <body>
+
+
 
   <%= yield %>
 

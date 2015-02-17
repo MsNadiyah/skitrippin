@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :resort do
     name "Awesome Test Resort"
-    addresss "1234 Test Street, Test City, CA, 92587"
+    address "1234 Test Street, Test City, CA, 92587"
     country "USA"
     website "www.example.com"
     phone_number "1.800.465.5792"
