@@ -4,7 +4,7 @@
 
 (function(){ 
   angular
-    .module("MainApp")
+    .module('MainApp')
     .config(config)
     .run(run);
 
@@ -40,15 +40,19 @@
       controllerAs: "main"
     })
 
-    // Grabs a specific resort
-    .when('resort/:id', {
-
-    })
-
     .otherwise({
       redirectTo: '/'
     });
 
   }
+
+  function run($location, $rootScope){ 
+  
+    var changeRoute = function(event, current, previous){                   return $rootScope.title = current.$$route.title;                      
+    };
+  
+    $rootScope.$on('$routeChangeSuccess', changeRoute);
+  
+    }
 
 }).call(this);  

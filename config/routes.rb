@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
   # Resorts
-  get   'resorts' => 'resorts#index'
+  get '/resorts' => 'resorts#index'
 
   resources :resorts, only: [:index, :show]
 
