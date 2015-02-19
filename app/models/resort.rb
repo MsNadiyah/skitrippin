@@ -8,13 +8,12 @@ class Resort < ActiveRecord::Base
   ##### METHODS TO PARSE RESORTS STATIC DATA #####
 
   def parsed_address
-    self.address = StreetAddress::US.parse(@resort.address)
+    StreetAddress::US.parse(self.address)
   end
-
 
   ##### METHODS TO GRAB RESORT API DATA #####
 
-  # Build the request url
+  # Build the request url 
   def build_url(mountain)
         
     # request_url
@@ -51,6 +50,14 @@ class Resort < ActiveRecord::Base
       self.conditions["items"][0]["longitude"]
     end
 
+    def city
+      self.parsed_address.city
+    end
+
+    def state
+      self.parsed_address.state
+    end
+
   # Mountain Conditions attributes
     def average_base_depth
       total = self.conditions["items"][0]["avgBaseDepthMin"].to_i + self.conditions["items"][0]["avgBaseDepthMax"].to_i
@@ -82,6 +89,11 @@ class Resort < ActiveRecord::Base
 
     def winds(day)
       @today = self.conditions["items"][0]["weather#{day}_WindSpeed"]
+    end
+
+    # Facilitates manipulating the data being rendered as JSON (e.g. adds a new attribute called "parsed_address")
+    def as_json(options={})
+      super(:methods => [:parsed_address])
     end
 
 end

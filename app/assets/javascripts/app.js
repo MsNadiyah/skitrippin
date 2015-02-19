@@ -2,10 +2,6 @@
 
 (function(){ 
   angular
-    .module("MainApp", [
-      'templates',
-      'ngResource',
-      'ngRoute'
-      ]);
+    .module('MainApp', []);
 
 })();  

@@ -1,43 +1,55 @@
-<div class="container-fluid">
-  <div class="row">
+<div ng-controller="MainController as main">
+  <div class="container-fluid">
+    <div class="row">
 
-    <div class="resorts-header">
-      <div class="col-md-9 col-md-offset-1">
-        <h1 class="">Mountain resorts</h1>
-          <p class="lead">
-            We've compiled this list of some of the biggest and best ski resorts in North America.  The resorts have been ranked based on <b>current</b> and <b>forecasted weather conditions</b>, <b>mountain conditions</b> and estimated <b>travel</b> and <b>lodging</b> costs.</p>  
+      <div class="resorts-header">
+        <div class="col-md-9 col-md-offset-1">
+          <h1 class="">Mountain resorts</h1>
+            <p class="lead">
+              We've compiled this list of some of the biggest and best ski resorts in North America.  The resorts have been ranked based on <b>current</b> and <b>forecasted weather conditions</b>, <b>mountain conditions</b> and estimated <b>travel</b> and <b>lodging</b> costs.</p>  
 
-          <p class="lead">
-            Click any of the resorts to see more detailed information.
-          </p>
+            <p class="lead">
+              Click any of the resorts to see more detailed information.
+            </p>
 
-          <p class="lead">
-            To see a customized ranking of the resorts based on your location & skiier/snowboarder profile, <a href="/login">login</a> or <a href="/signup">signup</a>.
-          </p>
-      </div>
-    </div>
-
-    <!-- The Resorts listing -->
-    <section id="resorts">
-
-      <div ng-controller="MainController as main">
-
-         <div class="resorts-listing">
-          <!-- Container for holding each of the ski resort results -->
-          <div class="col-md-3 resort-box" >
-
-            <div id="resorts-list" ng-repeat='resort in main.resorts'>
-              <ul>
-                <li>{{ resort.name }}</li>
-            
-              </ul>
-            </div>
-
-          </div>
+            <p class="lead">
+              To see a customized ranking of the resorts based on your location & skiier/snowboarder profile, <a href="/login">login</a> or <a href="/signup">signup.</a>
+            </p>
         </div>
       </div>
 
-    </section>
+      <!-- The Resorts listing -->
 
-  </div> 
-</div>
+      <section id="resorts">
+
+          <div class="resorts-listing col-md-9 col-md-offset-1">
+
+            <h3>The Resorts</h3>
+            
+            <!-- Container for holding each of the ski resort results -->
+            
+            <div class="col-md-3 resort-box" >
+
+              <div>
+                <ul>
+                  <li class="resort-name" ng-repeat="resort in main.resorts">{{ resort.name }}
+                    <ul>
+                      <li id="resort-location">
+                        {{ resort.parsed_address.city }}, 
+                        {{ resort.parsed_address.state }} | 
+                        {{ resort.country }}</li>
+                      <li id="resort-snowComments">{{ resort.conditions["items"][0]["snowComments"] }}</li>
+                      <li></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+      </section>
+
+    </div> 
+  </div>
+</div> <!-- NG Controller div --> 

@@ -1,23 +1,31 @@
-
-(function(){ 
+(function(){
 
   angular
     .module('MainApp')
     .controller('MainController', MainController);
 
-    MainController.$inject = ['ResortsFactory'];
+    MainController.$inject = ['$http'];
 
     // Creating the MainController Function to go along with the Main Application
 
-    function MainController(Resort){
+    function MainController($http){
 
       var self = this;
 
-      console.log(self.resorts);
+      self.resorts = getResorts();
 
-      // Resturn a list of resorts that come from the API referenced in the resorts factory
-      self.resorts = Resort.query();
+      function getResorts() {
+
+        $http.get('/api/resorts').success( function (data, status, headers, config) {
+
+          self.resorts = data;
+
+        });
+
+      }
+
+       return self;
 
     };
 
-})(); 
+})();
