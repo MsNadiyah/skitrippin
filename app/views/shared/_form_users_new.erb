@@ -1,14 +1,10 @@
 <div class="container-fluid">
 
-  <%= @user.errors.full_messages %>
-
   <%= form_for @user, html: {class: "form", :multipart => true} do |f| %> 
 
     <div class="col-md-8 col-md-offset-2">
 
       <div class="form-horizontal form-border">
-
-        <h2>Basic User Information</h2>
 
         <!-- Multipart true is needed for carrierwave avatar uploading -->
 

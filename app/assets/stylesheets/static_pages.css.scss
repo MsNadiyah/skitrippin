@@ -1,0 +1,55 @@
+// Place all the styles related to the Static_Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$ski-trippin-pageheader: 'nexa_rust_sansblack';
+$ski-trippin-script: 'nexa_rust_handmadeextended';
+$ski-trippin-header: 'nexa_rust_slabblack_shadow_01';
+
+#intro {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url('intro-background.jpg');
+  background-size: cover;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.skitrippin-header {
+  margin-top: 150px;
+  background: rgba(143,48,28, .7);
+  width: 70vw;
+  height: 20vh;
+}
+
+
+.skitrippin-welcome {
+  font-size: 60px;
+  font-family: 'nexa_rust_slabblack_shadow_01';
+  color: #FFFFFF;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.section-heading {
+  font-family: 'nexa_rust_sansblack';
+  font-size: 40px;
+}
+
+.tagline {
+  font-family: 'nexa_rust_sansblack';
+  color: #F1EBEB;
+  font-size: 60px;
+}
+
+#about {
+  width: 100vw;
+  height: 100vh;
+}
+
+#how-it-works {
+  width: 100vw;
+  height: 100vh;
+}
+

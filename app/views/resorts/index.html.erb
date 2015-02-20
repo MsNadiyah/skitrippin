@@ -1,15 +1,17 @@
+<%= render 'shared/form_log_in_navigation' %>
+
 <div ng-controller="MainController as main">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" class="content-bucket">
 
-      <div class="resorts-header">
+      <div class="resorts-header content-bucket">
         <div class="col-md-9 col-md-offset-1">
-          <h1 class="">Mountain resorts</h1>
+          <h1>Mountain resorts</h1>
             <p class="lead">
               We've compiled this list of some of the biggest and best ski resorts in North America.  The resorts have been ranked based on <b>current</b> and <b>forecasted weather conditions</b>, <b>mountain conditions</b> and estimated <b>travel</b> and <b>lodging</b> costs.</p>  
 
             <p class="lead">
-              Click any of the resorts to see more detailed information.
+              Click any of the resorts to see more detailed information.  
             </p>
 
             <p class="lead">
@@ -17,30 +19,31 @@
             </p>
         </div>
       </div>
+    </div>
 
       <!-- The Resorts listing -->
 
-      <section id="resorts">
-
-          <div class="resorts-listing col-md-9 col-md-offset-1">
-
-            <h3>The Resorts</h3>
-            
+      <section id="resorts-list">
+        <div class="row">
+          <div class="col-md-9 col-md-offset-1">
+              <h2>The Resorts</h2>
             <!-- Container for holding each of the ski resort results -->
-              <div>
-                <ul>
-                  <li class="resort-box col-md-4" ng-repeat="resort in main.resorts">{{ resort.name }}
-                    <ul>
-                      <li id="resort-location">
-                        {{ resort.parsed_address.city }}, 
-                        {{ resort.parsed_address.state }} | 
-                        {{ resort.country }}</li>
-                      <li id="resort-snowComments">{{ resort.conditions["items"][0]["snowComments"] }}</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-1">
+            <ul>
+              <a href="/resorts/"> <li class="resort-box resort-name text-center col-md-3" ng-repeat="resort in main.resorts"><b>{{ resort.name }}</b>
+                  <p id="resort-location">
+                    {{ resort.parsed_address.city }}, 
+                    {{ resort.parsed_address.state }} | 
+                    {{ resort.country }}</p>
+                  <p id="resort-snow-comments">{{ resort.conditions["items"][0]["snowComments"] }}</p>
+              </li></a>
+            </ul>
+          </div>
+        </div>
+    
 
       </section>
 

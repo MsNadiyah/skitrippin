@@ -1,10 +1,12 @@
+<%= render 'shared/form_log_in_navigation' %>
+
 <div class="container-fluid">
   <div class="individual-resort col-md-8 col-md-offset-2">
 
     <section class="resort-overview">
 
       <!-- The Resort Header Information -->
-      <div class="resort-header row">
+      <div class="resort-header row content-bucket">
         <div class="page-header text-center">
           <h1><%= @resort.name %></h1>
           <h2><small><%= @resort.parsed_address.city %>, <%= @resort.parsed_address.state_name %> | <%= @resort.country %></small></h2>

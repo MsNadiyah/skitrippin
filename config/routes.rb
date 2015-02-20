@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # Resorts
   get '/resorts' => 'resorts#index'
 
-  resources :resorts, only: [:index, :show]
+  resources :resorts, only: [:index, :show, :new, :create]
 
   resources :users, only: [:new, :create, :show, :edit, :update]
 
