@@ -9,6 +9,7 @@ FactoryGirl.define do
     travel true
     group_size 4
     decision_driver 2
+    password "password"
   end
 
   factory :invalid_user do 
@@ -21,6 +22,7 @@ FactoryGirl.define do
     travel true
     group_size 4
     decision_driver nil
+    password "password"
   end
 
 end
