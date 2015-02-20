@@ -27,25 +27,19 @@
             <h3>The Resorts</h3>
             
             <!-- Container for holding each of the ski resort results -->
-            
-            <div class="col-md-3 resort-box" >
-
               <div>
                 <ul>
-                  <li class="resort-name" ng-repeat="resort in main.resorts">{{ resort.name }}
+                  <li class="resort-box col-md-4" ng-repeat="resort in main.resorts">{{ resort.name }}
                     <ul>
                       <li id="resort-location">
                         {{ resort.parsed_address.city }}, 
                         {{ resort.parsed_address.state }} | 
                         {{ resort.country }}</li>
                       <li id="resort-snowComments">{{ resort.conditions["items"][0]["snowComments"] }}</li>
-                      <li></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-
-            </div>
           </div>
 
       </section>

@@ -58,6 +58,11 @@ class Resort < ActiveRecord::Base
       self.parsed_address.state
     end
 
+  # Create a "snow" method for ordering the resorts in the show
+    def snow 
+      self.conditions["items"][0]["snowComments"].split[0]
+    end  
+
   # Mountain Conditions attributes
     def average_base_depth
       total = self.conditions["items"][0]["avgBaseDepthMin"].to_i + self.conditions["items"][0]["avgBaseDepthMax"].to_i
@@ -93,7 +98,7 @@ class Resort < ActiveRecord::Base
 
     # Facilitates manipulating the data being rendered as JSON (e.g. adds a new attribute called "parsed_address")
     def as_json(options={})
-      super(:methods => [:parsed_address])
+      super(:methods => [:parsed_address, :snow])
     end
 
 end

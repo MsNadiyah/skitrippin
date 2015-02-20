@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   include ActiveModel::SecurePassword
   has_secure_password
 
+  # Create a first name method
+  def first_name
+    self.name.split[0]
+  end
+
   ### VALIDATIONS ###
 
   validates :name, presence: true 

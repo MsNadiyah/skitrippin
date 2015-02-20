@@ -55,6 +55,11 @@ gem 'thin', group: :production
 # Makes addresses easily parsabale for Google Maps and display features
 gem 'StreetAddress', :require => "street_address"
 
+# Provides the font-awesome web fonts and stylesheets for use with the Rails Asset Pipelin
+gem 'font-awesome-rails'
+
+gem 'animate-rails'
+
 ##############################
 ##### PRE-INSTALLED GEMS #####
 ##############################

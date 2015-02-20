@@ -1,82 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<% render 'shared/form_log_in_navigation' %>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SKITRIPPIN - Chase the snow</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="css/animate.css" rel="stylesheet" />
-    <!-- Squad theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
-  <link href="color/default.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="load"></div>
-  </div>
-
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                    <h1>SKITRIPPIN</h1>
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About Skitrippin</a></li>
-    <li><a href="#how_it_works">How it works</a></li>
-    <li><a href="#signup">Signup</a></li>
-    <li><a href="/resorts"><b>The resorts</b></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Signup</a></li>
-            <li><a href="/signup">Signup</a></li>
-            <li><a href="#">Contact us</a></li>
-          </ul>
-        </li>
-      </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-  <!-- Section: intro -->
-    <section id="intro" class="intro">
+<div class="container-fluid">
+  <div class="row">
   
-    <div class="slogan">
-      <h2><span class="text_color"></span> </h2>
-      <h4>Everything you need to know to chase the snow...in one place</h4>
-    </div>
-    <div class="page-scroll">
-      <a href="#service" class="btn btn-circle">
-        <i class="fa fa-angle-double-down animated"></i>
-      </a>
-    </div>
+      <!-- Section: intro -->
+      <section id="intro" class="intro">
+    
+        <div class="slogan col-md-8 col-md-offset-2">
+          <h2><span class="text_color"></span> </h2>
+            <div class="col-md-9">
+              <h1>Everything you need to know to chase the snow...<br>in one place</h1>
+            </div>
+        </div>
+        <div class="page-scroll">
+          <a href="#service" class="btn btn-circle">
+            <i class="fa fa-angle-double-down animated"></i>
+          </a>
+        </div>
 
-    </section>
-  <!-- /Section: intro -->
+      </section>
 
   <!-- Section: about -->
     <section id="about" class="home-section text-center">
@@ -106,13 +48,11 @@
       <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-          <div class="wow bounceInDown" data-wow-delay="0.4s">
+        
           <div class="section-heading">
           <h2>How it works</h2>
           <p class="lead">We aggregate all the information you need to plan your next ski trip, in one place.</p>
           <i class="fa fa-2x fa-angle-down"></i>
-
-          </div>
           </div>
         </div>
       </div>
@@ -227,12 +167,3 @@
       </div>  
     </div>
   </footer>
-
-
-</body>
-
-</html>
-
-<div ng-view>
-
-</div>

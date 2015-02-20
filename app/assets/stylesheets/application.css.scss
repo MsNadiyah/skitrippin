@@ -12,7 +12,39 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *= require animate
  */
  
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
+
+
+@font-face {
+    font-family: 'nexa_rust_handmadeextended';
+    src: url('NexaRustHandmade-Extended-webfont.eot');
+    src: url('NexaRustHandmade-Extended-webfont.eot?#iefix') format('embedded-opentype'),
+         url('NexaRustHandmade-Extended-webfont.woff2') format('woff2'),
+         url('NexaRustHandmade-Extended-webfont.woff') format('woff'),
+         url('NexaRustHandmade-Extended-webfont.ttf') format('truetype'),
+         url('NexaRustHandmade-Extended-webfont.svg#nexa_rust_handmadeextended') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#intro {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url('intro-background.jpg');
+  background-size: cover;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
